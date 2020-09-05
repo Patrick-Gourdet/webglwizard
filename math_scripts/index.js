@@ -97,6 +97,7 @@ root.castShadow =true;
       root.position.y += 0.25;
       scene.add(root);
       scene.castShadow = true;
+      
       // compute the box that contains all the stuff
       // from root and below
       const box = new THREE.Box3().setFromObject(root);
