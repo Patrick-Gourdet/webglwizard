@@ -8,16 +8,15 @@ function main() {
   const renderer = new THREE.WebGLRenderer({canvas});
 
   const fov = 45;
-  const aspect = 2;  // the canvas default
-  const near = 0.1;
-  const far = 100;
+  const aspect = 2.1;  // the canvas default
+  const near = 0.01;
+  const far = 20;
   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-  camera.position.set(0, 10, 20);
-  camera.castShadow = true;
+  camera.position.set(-9, -10, 20);
  
 
   const controls = new OrbitControls(camera, canvas);
-  controls.target.set(0, 5, 0);
+  controls.target.set(0, 5, 1);
   controls.update();
 
   const scene = new THREE.Scene();
@@ -28,7 +27,7 @@ function main() {
     const planeSize = 40;
 
     const loader = new THREE.TextureLoader();
-    const texture = loader.load('https://threejsfundamentals.org/threejs/resources/images/checker.png');
+    const texture = loader.load('../street.jpg');
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
     texture.magFilter = THREE.NearestFilter;
@@ -83,7 +82,7 @@ function main() {
     // will contain the box.
     camera.near = boxSize / 100;
     camera.far = boxSize * 100;
-
+    
     camera.updateProjectionMatrix();
 
     // point the camera to look at the center of the box
@@ -94,16 +93,18 @@ function main() {
     const gltfLoader = new GLTFLoader();
     gltfLoader.load('../objects/one.glb', (gltf) => {
       const root = gltf.scene;
+root.castShadow =true;
       root.position.y += 0.25;
       scene.add(root);
-
+      scene.castShadow = true;
       // compute the box that contains all the stuff
       // from root and below
       const box = new THREE.Box3().setFromObject(root);
       const color = 0xFFFFFF;
-      const intensity = 0.5;
+      const intensity = 0.8;
       const light = new THREE.DirectionalLight(color, intensity);
-      light.position.set(1, 1, 1);
+    
+      light.position.set(0, 0, 1);
       scene.add(light);
       scene.add(light.target);
       const boxSize = box.getSize(new THREE.Vector3()).length();
@@ -120,10 +121,13 @@ function main() {
 
 var needResize = true;
   function resizeRendererToDisplaySize(renderer) {
+    var scale = 500;
     const canvas = renderer.domElement;
-    const width = canvas.clientWidth + 200;
-    const height = canvas.clientHeight  + 200 * ( (canvas.clientHeight + 200)/width);
+    const width = canvas.clientWidth + scale;
+    const height = canvas.clientHeight  + scale * ( (canvas.clientHeight + scale)/width);
     canvas.width !== canvas.clientWidth  || canvas.height !== canvas.clientHeight ;
+       
+
     if (needResize) {
       needResize = false;
        renderer.setSize(width, height, false);
@@ -140,6 +144,7 @@ var needResize = true;
 
     renderer.render(scene, camera);
 
+// to antialias the shadow
     requestAnimationFrame(render);
   }
 

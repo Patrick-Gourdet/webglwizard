@@ -1,0 +1,28 @@
+ @font-face {
+  font-family: 'PaperScraps';
+  src: url('PaperScraps.eot'); /* IE9 Compat Modes */
+  src: url('PaperScraps.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('PaperScraps.woff') format('woff'), /* Modern Browsers */
+       url('PaperScraps.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('PaperScraps.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+canvas{ 
+     display: block; 
+     top:auto;bottom:20%;right:0;left:35%; 
+     border-radius: 20px;
+     border: solid rgb(66, 66, 66);
+     box-shadow:10px 20px 50px 10px rgb(95, 95, 95);
+     margin:auto; 
+    }
+@media screen and (min-width: 900px) {
+    canvas{
+         width: auto;
+         max-height: 500px;
+    }
+}
+    .drop-shadow svg {
+     filter: drop-shadow(7px 7px 7px #c4c4c4);
+     -webkit-filter: drop-shadow(7px 7px 7px #ffffff);
+   }
+
+   
