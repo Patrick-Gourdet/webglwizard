@@ -1,11 +1,58 @@
- @font-face {
-  font-family: 'PaperScraps';
-  src: url('PaperScraps.eot'); /* IE9 Compat Modes */
-  src: url('PaperScraps.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('PaperScraps.woff') format('woff'), /* Modern Browsers */
-       url('PaperScraps.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('PaperScraps.svg#svgFontName') format('svg'); /* Legacy iOS */
-}
+.tablink {
+    background-color: #1b5067!important;
+   
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    text-shadow: 2px 2px #24292e;
+  
+    font-size: 17px;
+    width: 25%;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tablink:hover {
+    background-color: #307796 !important;
+  }
+  .spacer {
+    flex: 1;
+  }
+  /* Set default styles for tab content */
+  .tabcontent {
+    color: white;
+    display: none;
+    padding: 50px;
+    text-align: center;
+  }
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #1b5067;
+    color: white;
+    font-weight: 600;
+   
+  }
+  
+  .toolbar img {
+    margin: 0 16px;
+  }
+  
+  .toolbar #twitter-logo {
+    height: 40px;
+    margin: 0 16px;
+  }
+  
+  .toolbar #twitter-logo:hover {
+    opacity: 0.8;
+  }
 canvas{ 
      display: block; 
      top:auto;bottom:20%;right:0;left:35%; 
