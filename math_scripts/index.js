@@ -27,7 +27,7 @@ function main() {
     const planeSize = 40;
 
     const loader = new THREE.TextureLoader();
-    const texture = loader.load('http://1.bp.blogspot.com/-w04of58DWwM/VhrcWfrWyVI/AAAAAAAAIUI/FKOyG_5vnSk/s1600/Wavy%2Brock%2Bwall%2Btexture.jpg');
+    const texture = loader.load('https://1.bp.blogspot.com/-w04of58DWwM/VhrcWfrWyVI/AAAAAAAAIUI/FKOyG_5vnSk/s1600/Wavy%2Brock%2Bwall%2Btexture.jpg');
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
     texture.magFilter = THREE.NearestFilter;
