@@ -91,7 +91,7 @@ function main() {
 
   {
     const gltfLoader = new GLTFLoader();
-    gltfLoader.load('../objects/one.glb', (gltf) => {
+    gltfLoader.load('./objects/one.glb', (gltf) => {
       const root = gltf.scene;
 root.castShadow =true;
       root.position.y += 0.25;
